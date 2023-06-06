@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="uk">
+    <meta charset="UTF-8">
+    <title>My Page</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+<div class="badge">
+    <div class="badge-content">
+        <span class="badge-text" data-author="John Doe">BuyList</span>
+    </div>
+</div>
+<section class="buy-content">
+    <article class="block-left">
+
+        <article class="product">
+            <section class="add-product">"
+                <h3 class="product-name">Назва товару</h3>
+                <button class="adding-product" data-tooltap="Додати товар">Додати товар</button>
+            </section>
+
+            <h3 class="product-name" style="text-decoration: line-through">Помідори</h3>
+            <section class="counter">
+                <div class="count-display">2</div>
+            </section>
+
+            <section class="buy-section">
+                <button class="button-bought" data-tooltap="Не куплено">Не куплено</button>
+            </section>
+
+            <h3 class="product-name">Печиво</h3>
+            <section class="counter">
+                <button class="round-button-red" data-tooltap="Мінус">-</button>
+                <div class="count-display">2</div>
+                <button class="button-green" data-tooltap="Плюс">+</button>
+            </section>
+
+            <section class="buy-section">
+                <button class="button-bought" data-tooltap="Куплено">Куплено</button>
+                <button class="button-square" data-tooltap="Видалити товар">х</button>
+            </section>
+        </article>
+
+        <article class="product">
+            <h3 class="product-name1" contenteditable="true">Сир</h3>
+            <section class="counter">
+                <button class="disabled-round-button-red" data-tooltap="Мінус">-</button>
+                <div class="count-display">1</div>
+                <button class="round-button-green" data-tooltap="Плюс">+</button>
+            </section>
+
+            <section class="buy-section">
+                <button class="button-bought" data-tooltap="Куплено">Куплено</button>
+                <button class="button-square" data-tooltap="Видалити товар">х</button>
+            </section>
+        </article>
+
+        <section class="block-right">
+            <h2 class="title-remain">Залишилося</h2>
+            <section class="container-right">
+                <section class="product-icon">
+                    <span class="icon-product-name">Сир</span>
+                    <div class="icon-product-amount" style="color: white">1</div>
+                </section>
+
+                <section class="product-icon">
+                    <span class="icon-product-name">Печиво</span>
+                    <div class="icon-product-amount" style="color: white">2</div>
+                </section>
+            </section>
+
+            <h2 class="title-bought">Куплено</h2>
+            <section class="product-icon">
+                <span class="icon-product-name-bought" style="text-decoration: line-through">Помідори</span>
+                <div class="icon-product-amount-bought" style="color: white; text-decoration: line-through">1</div>
+            </section>
+        </section>
+    </article>
+</section>
+</body>
+</html>
