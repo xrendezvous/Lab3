@@ -9,75 +9,94 @@
 <body>
 <div class="badge">
     <div class="badge-content">
-        <span class="badge-text" data-author="John Doe">BuyList</span>
+        <span class="badge-heading">BuyList</span>
+        <span class="badge-author">Created by Aryna</span>
     </div>
 </div>
 <section class="buy-content">
-    <article class="block-left">
+    <section class="block-left">
 
-        <article class="product">
-            <section class="add-product">"
-                <h3 class="product-name">Назва товару</h3>
-                <button class="adding-product" data-tooltap="Додати товар">Додати товар</button>
-            </section>
-
-            <h3 class="product-name" style="text-decoration: line-through">Помідори</h3>
-            <section class="counter">
-                <div class="count-display">2</div>
-            </section>
-
-            <section class="buy-section">
-                <button class="button-bought" data-tooltap="Не куплено">Не куплено</button>
-            </section>
-
-            <h3 class="product-name">Печиво</h3>
-            <section class="counter">
-                <button class="round-button-red" data-tooltap="Мінус">-</button>
-                <div class="count-display">2</div>
-                <button class="button-green" data-tooltap="Плюс">+</button>
-            </section>
-
-            <section class="buy-section">
-                <button class="button-bought" data-tooltap="Куплено">Куплено</button>
-                <button class="button-square" data-tooltap="Видалити товар">х</button>
-            </section>
-        </article>
-
-        <article class="product">
-            <h3 class="product-name1" contenteditable="true">Сир</h3>
-            <section class="counter">
-                <button class="disabled-round-button-red" data-tooltap="Мінус">-</button>
-                <div class="count-display">1</div>
-                <button class="round-button-green" data-tooltap="Плюс">+</button>
-            </section>
-
-            <section class="buy-section">
-                <button class="button-bought" data-tooltap="Куплено">Куплено</button>
-                <button class="button-square" data-tooltap="Видалити товар">х</button>
-            </section>
-        </article>
-
-        <section class="block-right">
-            <h2 class="title-remain">Залишилося</h2>
-            <section class="container-right">
-                <section class="product-icon">
-                    <span class="icon-product-name">Сир</span>
-                    <div class="icon-product-amount" style="color: white">1</div>
-                </section>
-
-                <section class="product-icon">
-                    <span class="icon-product-name">Печиво</span>
-                    <div class="icon-product-amount" style="color: white">2</div>
-                </section>
-            </section>
-
-            <h2 class="title-bought">Куплено</h2>
-            <section class="product-icon">
-                <span class="icon-product-name-bought" style="text-decoration: line-through">Помідори</span>
-                <div class="icon-product-amount-bought" style="color: white; text-decoration: line-through">1</div>
-            </section>
+        <section class="add-product">
+            <input class="product-search" style="font-family: Arial" type="text" placeholder="Назва товару" />
+            <button class="adding-product" style="font-family: Arial" data-tooltip="Додати товар">Додати</button>
         </section>
-    </article>
+
+        <div class="product-info">
+            <div class="product-name-container">
+                <div class="product-name" style="font-size: large; font-family: Arial; text-decoration: line-through">Помідори</div>
+            </div>
+            <div class="product-details">
+                <div class="counter">
+                    <div class="count-display" style="font-family: Arial; font-size: small; font-weight: bold">2</div>
+                </div>
+
+                <section class="buy-section">
+                    <button class="button-bought" style="font-family: Arial; font-size: small; font-weight: bold" data-tooltip="Не куплено">Не куплено</button>
+                </section>
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="product-name1" style="font-size: large; font-family: Arial">Печиво</div>
+            <div class="product-details">
+                <div class="counter">
+                    <button class="round-button-red" type="button" data-tooltip="Мінус">-</button>
+                    <div class="count-display" style="font-family: Arial; font-size: small; font-weight: bold">2</div>
+                    <button class="round-button-green" type="button" data-tooltip="Плюс">+</button>
+                </div>
+
+                <section class="buy-section">
+                    <button class="button-bought" style="font-family: Arial; font-size: small; font-weight: bold" data-tooltip="Куплено">Куплено</button>
+                    <button class="button-square" style="font-family: Arial; font-size: small; font-weight: bold" data-tooltip="Видалити товар">х</button>
+                </section>
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="product-name2" style="font-size: large; font-family: Arial" contenteditable="true">Сир</div>
+            <div class="product-details">
+                <div class="counter">
+                    <button class="disabled-round-button-red" type="button" data-tooltip="Мінус">-</button>
+                    <div class="count-display" style="font-family: Arial; font-size: small; font-weight: bold">1</div>
+                    <button class="round-button-green" type="button" data-tooltip="Плюс">+</button>
+                </div>
+
+                <section class="buy-section">
+                    <button class="button-bought" style="font-family: Arial; font-size: small; font-weight: bold" data-tooltip="Куплено">Куплено</button>
+                    <button class="button-square" style="font-family: Arial; font-size: small; font-weight: bold" data-tooltip="Видалити товар">х</button>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section class="block-right">
+        <div class="product-info1">
+            <div class="product-name" style="font-size: large; font-family: Arial; font-weight: bold">Залишилося</div>
+        </div>
+        <div class="product-info2">
+            <section class="product-icon">
+                <span class="icon-product-name" style="font-family: Arial; font-size: small; font-weight: bold">Печиво</span>
+                <div class="icon-product-amount" style="color: white; font-family: Arial; font-weight: bold">2</div>
+            </section>
+
+            <section class="product-icon">
+                <span class="icon-product-name" style="font-family: Arial; font-size: small; font-weight: bold">Сир</span>
+                <div class="icon-product-amount" style="color: white; font-family: Arial; font-weight: bold">1</div>
+            </section>
+        </div>
+
+        <div class="product-info2">
+            <div class="product-name" style="font-size: large; font-family: Arial; font-weight: bold">Куплено</div>
+        </div>
+
+        <div class="product-info2">
+            <section class="product-icon">
+                <span class="icon-product-name-bought" style="text-decoration: line-through; font-family: Arial; font-size: small; font-weight: bold">Помідори</span>
+                <div class="icon-product-amount-bought" style="color: white; text-decoration: line-through; font-family: Arial; font-weight: bold">1</div>
+            </section>
+        </div>
+
+    </section>
 </section>
 </body>
 </html>
