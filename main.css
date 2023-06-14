@@ -77,9 +77,33 @@ body {
 .product-info {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid lightgray;
     padding-bottom: 20px;
     margin-top: 15px;
+    position: relative;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.count-display {
+    background-color: #D3D3D3;
+    color: #36454F;
+    border-radius: 5px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 5px;
 }
 
 .product-info1 {
@@ -102,45 +126,19 @@ body {
     margin-left: 15px;
 }
 
-.product-name1 {
-    margin-left: 15px;
-    margin-right: 53px;
-}
-
-.product-name2 {
-    margin-left: 15px;
-    margin-right: 82px;
-}
-
-.product-details {
+/*.product-details {
     flex: 1;
     display: flex;
     justify-content: space-between;
-}
-
-.counter {
-    flex: 1;
-    display: flex;
-    justify-content: center;
     align-items: center;
 }
+*/
 
-.count-display {
-    justify-content: center;
-    align-items: center;
-    background-color: #D3D3D3;
-    color: #36454F;
-    border-radius: 5px;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    margin: 0 5px;
-}
 
 .buy-section {
-    margin-left: 10px;
+    flex: 1;
+    display: flex;
+    justify-content: right;
 }
 
 .add-product .adding-product {
