@@ -158,5 +158,68 @@ document.addEventListener('DOMContentLoaded', function() {
 
         return productInfo;
     }
+
+    const existingItems = document.querySelectorAll('.product-info');
+
+    existingItems.forEach(function(item) {
+        const countDisplay = item.querySelector('.count-display');
+        const minusButton = item.querySelector('.round-button-red');
+        const plusButton = item.querySelector('.round-button-green');
+        const deleteButton = item.querySelector('.button-square');
+        const boughtButton = item.querySelector('.button-bought');
+
+        minusButton.addEventListener('click', function() {
+            let count = parseInt(countDisplay.innerText);
+            if (count > 1) {
+                count--;
+                countDisplay.innerText = count.toString();
+            }
+            updateMinusButton();
+        });
+
+        plusButton.addEventListener('click', function() {
+            let count = parseInt(countDisplay.innerText);
+            count++;
+            countDisplay.innerText = count.toString();
+            updateMinusButton();
+        });
+
+        deleteButton.addEventListener('click', function() {
+            item.remove();
+        });
+
+        boughtButton.addEventListener('click', function() {
+            const isPurchased = item.classList.contains('purchased');
+            if (isPurchased) {
+                item.classList.remove('purchased');
+                boughtButton.innerText = 'Куплено';
+                showEditButtons();
+            } else {
+                item.classList.add('purchased');
+                boughtButton.innerText = 'Не куплено';
+                hideEditButtons();
+            }
+        });
+
+        function updateMinusButton() {
+            if (parseInt(countDisplay.innerText) === 1) {
+                minusButton.className = 'disabled-round-button-red';
+            } else {
+                minusButton.className = 'round-button-red';
+            }
+        }
+
+        function hideEditButtons() {
+            minusButton.style.display = 'none';
+            plusButton.style.display = 'none';
+            deleteButton.style.display = 'none';
+        }
+
+        function showEditButtons() {
+            minusButton.style.display = 'inline-block';
+            plusButton.style.display = 'inline-block';
+            deleteButton.style.display = 'inline-block';
+        }
+    });
 });
 
