@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 boughtButton.innerText = 'Не куплено';
                 hideEditButtons();
             }
+            updateStatistics();
         });
 
         function hideEditButtons() {
