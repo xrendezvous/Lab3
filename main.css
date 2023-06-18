@@ -47,6 +47,20 @@ body {
     margin-right: 5px;
 }
 
+.product-icon1 {
+    background-color: #e8e8e8;
+    color: #36454F;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.product-icon1:not(:last-child) {
+    margin-right: 5px;
+}
+
 .icon-product-amount,
 .icon-product-amount-bought {
     background-color: #FF8C00;
