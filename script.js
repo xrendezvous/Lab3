@@ -8,13 +8,27 @@ document.addEventListener('DOMContentLoaded', function() {
     addButton.addEventListener('click', function() {
         const productName = inputField.value.trim();
         if (productName !== '') {
-            const newProduct = createProductElement(productName);
-            productList.appendChild(newProduct);
-            inputField.value = '';
-            inputField.focus();
-            updateStatistics();
+            if (isDuplicateProduct(productName)) {
+                window.alert('A product with this name already exists');
+            } else {
+                const newProduct = createProductElement(productName);
+                productList.appendChild(newProduct);
+                inputField.value = '';
+                inputField.focus();
+                updateStatistics();
+            }
         }
     });
+
+    function isDuplicateProduct(productName) {
+        const existingProducts = productList.querySelectorAll('.product-name');
+        for (let i = 0; i < existingProducts.length; i++) {
+            if (existingProducts[i].innerText.toLowerCase() === productName.toLowerCase()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     function createProductElement(name) {
         const productInfo = document.createElement('div');
