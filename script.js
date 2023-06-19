@@ -5,7 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const remainingProductsContainer = document.getElementById('remaining-products');
     const purchasedProductsContainer = document.getElementById('purchased-products');
 
-    addButton.addEventListener('click', function() {
+    addButton.addEventListener('click', addProduct);
+    inputField.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            addProduct();
+        }
+    });
+
+    function addProduct() {
         const productName = inputField.value.trim();
         if (productName !== '') {
             if (isDuplicateProduct(productName)) {
@@ -18,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateStatistics();
             }
         }
-    });
+    }
 
     function isDuplicateProduct(productName) {
         const existingProducts = productList.querySelectorAll('.product-name');
@@ -51,7 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
             inputField.addEventListener('blur', function() {
                 const editedName = inputField.value.trim();
                 if (editedName !== '') {
-                    productNameElement.innerText = editedName;
+                    if (isDuplicateProduct(editedName)) {
+                        window.alert('A product with this name already exists');
+                    } else {
+                        productNameElement.innerText = editedName;
+                    }
                 }
                 productNameContainer.replaceChild(productNameElement, inputField);
                 updateStatistics();
