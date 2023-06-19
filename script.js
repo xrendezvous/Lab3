@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 inputField.value = '';
                 inputField.focus();
                 updateStatistics();
+                updateProductAmountIcon();
             }
         }
     }
@@ -66,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 productNameContainer.replaceChild(productNameElement, inputField);
                 updateStatistics();
+                updateProductAmountIcon();
             });
         });
 
@@ -77,6 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const counter = document.createElement('div');
         counter.className = 'counter';
+
+
 
         const minusButton = document.createElement('button');
         minusButton.className = 'round-button-red';
@@ -92,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateStatistics();
             }
             updateMinusButton();
+            updateProductAmountIcon();
         });
 
         const countDisplay = document.createElement('div');
@@ -100,6 +105,12 @@ document.addEventListener('DOMContentLoaded', function() {
         countDisplay.style.fontSize = 'small';
         countDisplay.style.fontWeight = 'bold';
         countDisplay.innerText = '1';
+
+        function updateProductAmountIcon() {
+            productAmountIcon.innerText = countDisplay.innerText;
+        }
+
+        countDisplay.addEventListener('input', updateProductAmountIcon);
 
         const plusButton = document.createElement('button');
         plusButton.className = 'round-button-green';
@@ -113,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
             countDisplay.innerText = count.toString();
             updateStatistics();
             updateMinusButton();
+            updateProductAmountIcon();
         });
 
         counter.appendChild(minusButton);
@@ -154,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 remainingProductsContainer.removeChild(productIcon);
             }
             updateStatistics();
+            updateProductAmountIcon();
         });
 
         function hideEditButtons() {
@@ -180,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
             productInfo.remove();
             remainingProductsContainer.removeChild(productIcon);
             updateStatistics();
+            updateProductAmountIcon();
         });
 
         const productIcon = document.createElement('section');
@@ -219,22 +233,33 @@ document.addEventListener('DOMContentLoaded', function() {
         return productInfo;
     }
 
+    function updateProductAmountIcon(countDisplay, productAmountIcon) {
+        productAmountIcon.innerText = countDisplay.innerText;
+    }
+
+    const initialProducts = ['Помідори', 'Печиво', 'Сир'];
+
+    initialProducts.forEach(function(product) {
+        const newProduct = createProductElement(product);
+        productList.appendChild(newProduct);
+    });
+
+    updateStatistics();
+
     function updateStatistics() {
         const productInfos = document.querySelectorAll('.product-info');
         const remainingProductsContainer = document.getElementById('remaining-products');
         const purchasedProductsContainer = document.getElementById('purchased-products');
 
-        // Clear existing products in statistics
         remainingProductsContainer.innerHTML = '';
         purchasedProductsContainer.innerHTML = '';
 
-        productInfos.forEach(function(productInfo) {
+        productInfos.forEach(function (productInfo) {
             const countDisplay = productInfo.querySelector('.count-display');
             const productName = productInfo.querySelector('.product-name').innerText;
             const isPurchased = productInfo.classList.contains('purchased');
             const count = parseInt(countDisplay.innerText);
 
-            // Update the quantity in the statistics
             const productIcon = document.createElement('section');
             productIcon.className = 'product-icon';
 
@@ -254,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             productIcon.appendChild(productNameIcon);
             productIcon.appendChild(productAmountIcon);
-
+            
             if (isPurchased) {
                 purchasedProductsContainer.appendChild(productIcon);
             } else {
@@ -263,14 +288,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const initialProducts = ['Помідори', 'Печиво', 'Сир'];
-
-    initialProducts.forEach(function(product) {
-        const newProduct = createProductElement(product);
-        productList.appendChild(newProduct);
-    });
-
-    updateStatistics();
 });
 
 
