@@ -16,14 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const productName = inputField.value.trim();
         if (productName !== '') {
             if (isDuplicateProduct(productName)) {
-                window.alert('A product with this name already exists');
+                window.alert('Товар з такою назвою вже існує');
             } else {
                 const newProduct = createProductElement(productName);
                 productList.appendChild(newProduct);
                 inputField.value = '';
                 inputField.focus();
                 updateStatistics();
-                updateProductAmountIcon();
             }
         }
     }
@@ -60,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const editedName = inputField.value.trim();
                 if (editedName !== '') {
                     if (isDuplicateProduct(editedName)) {
-                        window.alert('A product with this name already exists');
+                        window.alert('Товар з такою назвою вже існує');
                     } else {
                         productNameElement.innerText = editedName;
                     }
@@ -79,8 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const counter = document.createElement('div');
         counter.className = 'counter';
-
-
 
         const minusButton = document.createElement('button');
         minusButton.className = 'round-button-red';
@@ -229,13 +226,11 @@ document.addEventListener('DOMContentLoaded', function() {
         updateMinusButton();
 
         showEditButtons();
+        
 
         return productInfo;
     }
 
-    function updateProductAmountIcon(countDisplay, productAmountIcon) {
-        productAmountIcon.innerText = countDisplay.innerText;
-    }
 
     const initialProducts = ['Помідори', 'Печиво', 'Сир'];
 
@@ -279,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             productIcon.appendChild(productNameIcon);
             productIcon.appendChild(productAmountIcon);
-            
+
             if (isPurchased) {
                 purchasedProductsContainer.appendChild(productIcon);
             } else {
